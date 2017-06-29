@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<body>
+	Bonjour
+	<b> <h:outputText value="#{loginBean.nom}"></h:outputText></b>
+
+	<h2>Liste des projets</h2>
+	<h:selectOneMenu value="#{loginBean.nomprojet}">
+		<f:selectItems value="#{loginBean.lesProjets}" var="c"
+			itemLabel="#{c.titre}" itemValue="#{c.titre}" />
+	</h:selectOneMenu>
+
+	<h:form>
+		<h2>Liste des promotions</h2>
+		<h:selectOneMenu value="#{loginBean.nomPromotion}">
+			<f:selectItems value="#{loginBean.lesPromotions}" var="c"
+				itemLabel="#{c.nomPromo}" itemValue="#{c.nomPromo}" />
+		</h:selectOneMenu>
+
+
+		<h2>Formulaire de création de projet</h2>
+		<h:panelGrid columns="3">
+			<h:outputText value="Titre :"></h:outputText>
+			<h:inputText id="titre" value="#{loginBean.leProjet.titre}"
+				required="true" requiredMessage="Votre projet doit avoir un titre">
+			</h:inputText>
+			<h:message for="titre"></h:message>
+			<h:outputText value="Sujet:">
+			</h:outputText>
+			<h:inputText id="sujet" value="#{loginBean.leProjet.sujet}"
+				required="true"
+				requiredMessage="Ajouter une description à votre projet">
+			</h:inputText>
+			<h:message for="sujet"></h:message>
+			<h:outputText value="Date de création :"></h:outputText>
+			<h:inputText id="datecreation"
+				value="#{loginBean.leProjet.dateCreation}" required="true"
+				requiredMessage="La date de crétion s'il vous plait !">
+			</h:inputText>
+			<h:message for="datecreation"></h:message>
+			<h:outputText value="Date limite de rendu :">
+			</h:outputText>
+			<h:inputText id="datefin"
+				value="#{loginBean.leProjet.dateLimiteRendu}" required="true"
+				requiredMessage="La date de fin de votre projet !">
+			</h:inputText>
+			<h:message for="datefin"></h:message>
+
+			<h:commandButton value="Créer un projet"
+				action="#{loginBean.creerProjet}">
+			</h:commandButton>
+		</h:panelGrid>
+
+	</h:form>
+</body>
+</html>

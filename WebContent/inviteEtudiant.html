@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<body>
+	Bonjour
+	<b> <h:outputText value="#{loginBean.nom}"></h:outputText></b>
+
+	
+<h:dataTable value="#{EtudiantBean.getUserList()}" var="u" border="1">
+	<h:form>
+		<h2>Liste des promotions</h2>
+		<h:selectOneMenu value="#{loginBean.nomPromotion}">
+			<f:selectItems value="#{loginBean.lesPromotions}" var="c"
+				itemLabel="#{c.nomPromo}" itemValue="#{c.nomPromo}" />
+		</h:selectOneMenu>
+
+
+		<h2>Formulaire de création de projet</h2>
+		<h:panelGrid columns="2">
+			<h:outputText value="Titre :"></h:outputText>
+			<h:inputText id="titre" value="#{loginBean.leProjet.titre}">
+			</h:inputText>
+			<h:outputText value="Sujet:">
+			</h:outputText>
+			<h:inputText id="sujet" value="#{loginBean.leProjet.sujet}">
+			</h:inputText>
+			<h:outputText value="Date de création :"></h:outputText>
+			<h:inputText id="datecreation"
+				value="#{loginBean.leProjet.dateCreation}">
+			</h:inputText>
+			<h:outputText value="Date limite de rendu :">
+			</h:outputText>
+			<h:inputText id="datefin"
+				value="#{loginBean.leProjet.dateLimiteRendu}">
+			</h:inputText>
+
+			<h:commandButton value="Créer un projet"
+				action="#{loginBean.creerProjet}">
+			</h:commandButton>
+		</h:panelGrid>
+
+	</h:form>
+</body>
+</html>
+

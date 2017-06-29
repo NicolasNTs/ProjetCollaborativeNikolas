@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="prjface0" transaction-type="JTA">
-		<jta-data-source>jdbc/magasinbis</jta-data-source>
-		<class>model.Client</class>
+	<persistence-unit name="formation" transaction-type="JTA">
+		<jta-data-source>jdbc/mlr</jta-data-source>
+		<class>model.Equipe</class>
+		<class>model.Etudiant</class>
+		<class>model.Formateur</class>
+		<class>model.Membre</class>
+		<class>model.Projet</class>
+		<class>model.Promotion</class>
+		
 	</persistence-unit>
 </persistence>

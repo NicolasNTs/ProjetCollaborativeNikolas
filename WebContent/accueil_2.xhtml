@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:form>
+	<h2>Bonjour, merci d'entrer vos identifiants</h2>
+	<h:panelGrid columns="2">
+		<h:selectOneMenu value="#{bean.selectedItem}">
+			<f:selectItems value="#{bean.availableItems.entrySet()}" var="entry"
+				itemValue="#{entry.key}" itemLabel="#{entry.value}" />
+		</h:selectOneMenu>
+		<h:outputText value="Nom :"></h:outputText>
+		<h:inputText id="nom" value="#{loginBean.nom}">
+		</h:inputText>
+		<h:outputText value="Mot de passe :">
+		</h:outputText>
+		<h:inputSecret id="passe" value="#{loginBean.motdepasse}">
+		</h:inputSecret>
+		<h:commandButton value="Connexion"
+			action="#{loginBean.validationMembre}">
+		</h:commandButton>
+	</h:panelGrid>
+</h:form>
+</html>
